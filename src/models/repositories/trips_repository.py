@@ -34,7 +34,7 @@ class TripsRepository:
         trip = cursor.fetchone()
         return trip
     
-    def uptate_trip_status(self, trip_id: str) -> None:
+    def update_trip_status(self, trip_id: str) -> None:
         cursor = self.__conn.cursor()
         cursor.execute(
             '''
