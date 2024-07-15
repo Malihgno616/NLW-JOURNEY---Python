@@ -1,6 +1,7 @@
 import uuid
 from typing import Dict
 
+
 class ActivityCreator:
     def __init__(self, activities_repository) -> None:
         self.__activities_repository = activities_repository

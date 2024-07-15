@@ -15,7 +15,6 @@ from src.controllers.participant_creator import ParticipantCreator
 from src.controllers.participant_confirmer import ParticipantConfirmer
 from src.controllers.participants_finder import ParticipantFinder
 
-
 from src.controllers.activity_creator import ActivityCreator
 from src.controllers.activity_finder import ActivityFinder
 
@@ -111,7 +110,7 @@ def create_activity(tripId):
 
 @trips_routes_bp.route("/trips/<tripId>/participants", methods=["GET"])
 def get_trip_participants(tripId):
-    conn = db_connection_handler.get_connection(conn)
+    conn = db_connection_handler.get_connection()
     participants_repository = ParticipantsRepository(conn)
     controller = ParticipantFinder(participants_repository)
 
@@ -121,7 +120,8 @@ def get_trip_participants(tripId):
 
 @trips_routes_bp.route("/trips/<tripId>/activities", methods=["GET"])
 def get_trip_activities(tripId):
-    conn = db_connection_handler.get_connection(conn)
+    conn = None
+    conn = db_connection_handler.get_connection()
     activities_repository = ActivitiesRepository(conn)
     controller = ActivityFinder(activities_repository)
 

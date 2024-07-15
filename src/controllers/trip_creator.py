@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, Tuple
 import uuid
 from src.drivers.email_sender import send_email
 

@@ -5,7 +5,7 @@ class ParticipantsRepository:
     def __init__(self, conn: Connection) -> None:
         self.__conn = conn
 
-    def registry_participants(self, participants_infos: Dict) -> None:
+    def registry_participant(self, participants_infos: Dict) -> None:
         cursor = self.__conn.cursor()
         cursor.execute(
             '''
@@ -37,7 +37,7 @@ class ParticipantsRepository:
         return participants
     
     def update_participant_status(self, participant_id: str) -> None:
-        cursor = self._conn.cursor()
+        cursor = self.__conn.cursor()
         cursor.execute(
             '''
                 UPDATE participants
